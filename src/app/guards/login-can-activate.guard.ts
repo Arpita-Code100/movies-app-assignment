@@ -16,6 +16,7 @@ export class LoginCanActivateGuard implements CanActivate {
     let isloggedIn = this.service.getLoggedIn();
     if(isloggedIn) return true;
     else {
+      window.alert('Please login to proceed!!');
       this.route.navigate(['/login']);
       return false;
     };
