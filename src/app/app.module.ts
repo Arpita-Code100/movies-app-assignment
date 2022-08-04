@@ -11,6 +11,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './components/signup/signup.component';
 import { ErrorComponent } from './components/error/error.component';
+import { LoginCanActivateGuard } from './guards/login-can-activate.guard';
 
 
 
@@ -31,7 +32,7 @@ import { ErrorComponent } from './components/error/error.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LoginCanActivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

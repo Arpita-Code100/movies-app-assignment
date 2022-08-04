@@ -4,6 +4,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { LoginComponent } from './components/login-component/login/login.component';
 import { MoviesHomeComponent } from './components/movies-home-component/movies-home/movies-home.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { LoginCanActivateGuard } from './guards/login-can-activate.guard';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   {
     path:'movies-home',
     component: MoviesHomeComponent,
+    canActivate: [LoginCanActivateGuard]
   },
   {
     path:'error',

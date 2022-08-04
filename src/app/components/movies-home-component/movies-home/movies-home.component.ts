@@ -31,7 +31,7 @@ export class MoviesHomeComponent implements OnInit {
     this.searchForm = new FormGroup({
       'searchedItem' : new FormControl("")
     })
-    this.getMoviesData();
+      this.getMoviesData();
   }
 
   /**

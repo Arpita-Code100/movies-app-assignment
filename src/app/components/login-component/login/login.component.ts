@@ -3,6 +3,7 @@ import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EMAIL, PASSWORD } from 'src/app/constants/api-constants';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
   message:string = '';
   newUserEmail:any='';
   newUserPassword:any='';
-  constructor(private route:Router) { }
+  constructor(private route:Router,private service:LoginService) { }
 
   ngOnInit(): void {
       this.onLogIn();
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit {
    */
   onLogIn(){
     this.title = 'Sign In';
+    localStorage.setItem('successful','N');
     this.signInForm = new FormGroup({
       'username': new FormControl(null,[Validators.required]),
       'password' : new FormControl(null,Validators.required)
@@ -62,6 +64,7 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     console.log(this.signInForm);
     this.submitClicked=true;
+    this.service.setLoggedIn(false);
     //Login with signup user details
       this.newUserEmail = localStorage.getItem('email');
       this.newUserPassword = localStorage.getItem('password');
@@ -70,6 +73,7 @@ export class LoginComponent implements OnInit {
       if(this.signInForm.value.username===this.newUserEmail && this.signInForm.value.password===this.newUserPassword){
         this.invalidUserName=false;
         this.invalidPassword=false;
+        this.service.setLoggedIn(true);
         this.route.navigate(['/movies-home']);
       }else if(this.signInForm.value.username!==this.newUserEmail && this.signInForm.value.username){
         this.invalidUserName=true;
@@ -83,6 +87,7 @@ export class LoginComponent implements OnInit {
       if(this.signInForm.value.username===EMAIL && this.signInForm.value.password===PASSWORD){
         this.invalidUserName=false;
         this.invalidPassword=false;
+        this.service.setLoggedIn(true);
         this.route.navigate(['/movies-home']);
       }else if(this.signInForm.value.username!==EMAIL && this.signInForm.value.username && this.signInForm.value.username !== this.newUserEmail){
         this.invalidUserName=true;
