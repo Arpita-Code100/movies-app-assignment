@@ -22,6 +22,7 @@ form .txt_field{
     position: relative;
     border-bottom: 2px solid #adadad;
     margin: 30px 0;
+    margin-bottom: 0px;
 }
 
 .txt_field input{
@@ -62,6 +63,8 @@ form .txt_field{
     color: #2691d9;
 }
 
+
+
 .txt_field input:focus ~ span::before,
 .txt_field input:valid ~ span::before{
     width: 100%;
@@ -98,12 +101,18 @@ input[type="submit"]:hover{
     transition: .5s;
 }
 
-
+.submit-button{
+    padding-top: 40px;
+}
+.login-validation{
+    color: red;
+}
 .signup_link{
     margin: 30px 0;
     text-align: center;
     font-size: 16px;
     color: #666666;
+    cursor: pointer;
 }
 
 .signup_link a{

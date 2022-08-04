@@ -1,0 +1,39 @@
+<div class="bg-color">
+    
+    <div class="center"> 
+          
+    <form *ngIf="title === 'Sign In'" id="login" [formGroup]="signInForm" (ngSubmit)="onSubmit()" > 
+        <h2>{{title}}</h2> 
+        <hr>
+       <div class="txt_field">
+        
+        <input 
+        type="txt" 
+        class="form-control"
+        formControlName="username"
+        required
+        >  
+        <label><b>Email    
+        </b>    
+        </label>
+       </div>  
+       <span class="login-validation" *ngIf="signInForm.get('username').invalid && submitClicked">Email is required</span>  
+       <span class="login-validation" *ngIf="invalidUserName && !signInForm.get('username').invalid">Email is invalid</span>  
+       <div class="txt_field">
+        <input 
+        type="Password" 
+        class="form-control"
+        formControlName="password"
+        required>    
+        
+        <label><b>Password     
+        </b>    
+        </label>
+       </div> 
+       <span class="login-validation" *ngIf="signInForm.get('password').invalid && submitClicked">Password is required</span>   
+       <span class="login-validation" *ngIf="invalidPassword && !signInForm.get('password').invalid">Password is invalid</span>   
+       <div class="submit-button"><input type="submit" name="log" id="log" value="SUBMIT"></div>     
+        <br><br> 
+        <div class="signup_link">Don't have an account? <a (click)="onSignUp()">Sign up</a> here.</div>    
+    </form> 
+</div>

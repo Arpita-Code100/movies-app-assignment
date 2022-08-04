@@ -1,0 +1,39 @@
+<div>
+    <header>
+        <form (ngSubmit)="onSearch()" [formGroup]="searchForm">
+            <input formControlName="searchedItem" type="text" class="search" placeholder="What are you looking for? Search titles or genres...">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </header>
+    <div class="sort">
+        <div class="popular-movies-title">Popular Movies</div>
+        <div class="sortby-placement">
+            <h3 class="sortby-title">SORT BY</h3><br>
+            <button class="sort-button" type="submit" (click)="sortBy('title')">Title ⬆⬇</button>
+            <button class="sort-button" type="submit" (click)="sortBy('popularity')">⭐Popularity ⬆⬇</button>
+        </div>
+    </div>
+    <main> 
+        <div class="movie" *ngFor="let movie of moviesList | filter:searchValue:['original_title','genre_ids'] | sort:[sortByField,isSortAscending]">
+            <img class="image-dimension" [src]="getImagePath(movie)" alt="image">
+            <div class="movie-info">
+                    <h3>{{movie['title']}}</h3>
+                    <div class="details">
+                        Popularity: {{movie['popularity']}}           
+                    </div>
+                    <div class="details">
+                        Vote count: {{movie['vote_count']}}
+                    </div>
+                    <hr>
+                    <div class="date-details">
+                       {{movie['release_date']}}
+                       <span [class]="getRateStyle(movie)" style="float: right">⭐{{movie['vote_average']}}</span>
+                    </div>    
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                {{movie['overview']}}
+            </div>
+        </div>
+    </main>
+</div>

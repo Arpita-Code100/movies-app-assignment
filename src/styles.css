@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-body .bg-color{
+body {
     margin: 0;
     padding: 0;
     font-family: montserrat;
-    background: linear-gradient(120deg,#3e4b69,#3e4b69);
+    /* background: linear-gradient(120deg,#3e4b69,#3e4b69); */
+    background-color: rgba(0, 0, 0, 0.945);
+    /* background-color: lightcoral; */
     height: 100vh;
+    
     overflow: hidden;
+    overflow-y: scroll;
 }
+

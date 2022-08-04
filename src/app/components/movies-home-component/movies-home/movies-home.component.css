@@ -1,0 +1,171 @@
+.container{
+    overflow-y: scroll;
+}
+header{
+   padding: 1rem;
+   background-color: rgba(128, 128, 128, 0.26);
+   border-radius: 10px;
+}
+
+header input{
+  width:90%;
+  padding: 0.5rem;
+  font-size: 17px;
+  border: 3px solid grey;
+  background: #f1f1f1;
+  border-radius: 10px 2px 2px 10px;
+  border-right: none;
+  padding-bottom: 8px;
+  padding-top: 9.8px;
+}
+header button{
+  width: 8%;
+  padding: 0.6rem;
+  background-color: black;
+  background-color: red;
+  color: white;
+  font-size: 17px;
+  border: 3px solid grey;
+  cursor: pointer;
+  border-radius: 2px 10px 10px 2px;
+}
+
+.search-button{
+    font-weight: 10px;
+    text-shadow: 1px 0 1px;
+    letter-spacing: 1px;
+}
+
+.sort{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1rem;
+}
+.sort-button{
+    width: 9rem;
+    height: 3rem;
+    padding-top: 2px;
+    font-size: 17px;
+    margin-top: 9px;
+    margin-left: 17px;
+    margin-right: 17px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 10px;
+    text-shadow: -1px 0;
+    letter-spacing: 0.4px;
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie img{
+    width: 100%;
+}
+.movie{
+    /* flex:1 0 21%; */
+    width: 300px ;
+    height: 100%;
+    margin: 1rem;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    /* background-color:orange ; */
+}
+
+.movie-info{
+    /* color: #eee; */
+    /* display: flex; */
+    align-items: center;
+    /* justify-content: space-between; */
+    padding: 0.5rem 1rem 1rem ;
+    letter-spacing: 0.5px;
+}
+
+.movie-info h3{
+    margin-top: 0;
+    color: white;
+}
+
+.movie-info label{
+    margin-top: 0;
+    color: white;
+}
+
+.movie-info span{
+    background-color: transparent;
+    padding: .25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.movie-info span.green{
+    color: lightgreen;
+}
+.movie-info span.red{
+    color: red;
+}
+.movie-info span.orange{
+    color: orange;
+}
+
+.overview{
+    background-color: white;
+    padding: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%;
+    transform: translateY(101%);
+    overflow-y: scroll;
+}
+
+.movie:hover .overview{
+    transform: translateY(5%); 
+}
+
+.date-details{
+    font-size: 12px;
+    color: gray;
+    letter-spacing: 0.5px;
+    font-weight: bolder;
+}
+
+.details{
+    font-size: 15px;
+    color: rgb(128, 128, 128);
+    letter-spacing: 0.5px;
+}
+
+button[type="text"]:hover{
+    border-color: #deb887;
+    transition: .5s;
+}
+
+button[type="submit"]:hover{
+    border-color: #deb887;
+    transition: .5s;
+}
+
+.sortby-title{
+    color: gray;
+    text-shadow: 1px 0 ;
+}
+.sortby-placement{
+    display:flex; 
+    justify-content: space-around; 
+    padding-right: 5px;
+}
+
+.popular-movies-title{
+    color: Red; 
+    padding: 1rem; 
+    font-size: 2em;
+    font-weight: 10px;
+    text-shadow: 2px 0 2px;
+}
