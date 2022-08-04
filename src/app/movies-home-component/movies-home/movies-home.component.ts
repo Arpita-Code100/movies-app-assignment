@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movies-home.component.css']
 })
 export class MoviesHomeComponent implements OnInit {
-
+  num=[1,2];
   constructor() { }
 
   ngOnInit(): void {
+    this.getMoviesData();
+  }
+
+  getMoviesData(){
+    
   }
 
 }
