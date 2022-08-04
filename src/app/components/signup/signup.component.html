@@ -11,27 +11,25 @@
     type="txt" 
     class="form-control"
     formControlName="username"
-    required
+    
     >  
     <label><b>Email    
     </b>    
     </label>
    </div>  
    <span class="login-validation" *ngIf="signUpForm.get('username').invalid && submitClicked">Email is required</span>  
-   <span class="login-validation" *ngIf="invalidUserName && !signUpForm.get('username').invalid">Email is invalid</span>  
    <div class="txt_field">
     <input 
     type="Password" 
     class="form-control"
     formControlName="password"
-    required>    
+    >    
     
     <label><b>Password     
     </b>    
     </label>
    </div> 
    <span class="login-validation" *ngIf="signUpForm.get('password').invalid && submitClicked">Password is required</span>   
-   <span class="login-validation" *ngIf="invalidPassword && !signUpForm.get('password').invalid">Password is invalid</span>   
    <div class="submit-button"><input type="submit" name="log" id="log" value="REGISTER"></div>     
     <br><br> 
     <div class="signup_link"><p [ngStyle]="successfulRegistration ? {color : 'blue'} : {color : 'red'}">{{message}}</p> <a (click)="onLogIn()">Login</a> here.</div>    

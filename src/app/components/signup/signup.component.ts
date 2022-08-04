@@ -28,8 +28,8 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
-      'username': new FormControl(null,[Validators.required]),
-      'password' : new FormControl(null,Validators.required)
+      'username': new FormControl(null),
+      'password' : new FormControl(null)
     });
   }
 
@@ -43,17 +43,22 @@ export class SignupComponent implements OnInit {
   onSubmit(){
       this.invalidUserName = false;
       this.invalidPassword = false;
+      this.submitClicked = true;
       if(this.signUpForm.value.username===localStorage.getItem('email')){
         this.successfulRegistration=false;
         this.message = "Email Id is already registered!!"
+        this.signUpForm.reset();
+      }else if(this.signUpForm.value.username && this.signUpForm.value.password){
+          localStorage.setItem('email',this.signUpForm.value.username);
+          localStorage.setItem('password',this.signUpForm.value.password);
+          this.successfulRegistration=true;
+          this.message = "Registration is successful !!"
+          this.signUpForm.reset();
       }else{
-        localStorage.setItem('email',this.signUpForm.value.username);
-        localStorage.setItem('password',this.signUpForm.value.password);
-        this.successfulRegistration=true;
-        this.message = "Registration is successful !!"
+        this.successfulRegistration=false;
+        this.message = "Please enter values to Sign Up!!"
       }
-      this.signUpForm.reset();
-  }
+    }
 
   /**
    * onLogIn() user can navigate to

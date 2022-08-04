@@ -62,20 +62,32 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     console.log(this.signInForm);
     this.submitClicked=true;
+    //Login with signup user details
       this.newUserEmail = localStorage.getItem('email');
       this.newUserPassword = localStorage.getItem('password');
+      this.invalidUserName=false;
+      this.invalidPassword=false;
       if(this.signInForm.value.username===this.newUserEmail && this.signInForm.value.password===this.newUserPassword){
         this.invalidUserName=false;
         this.invalidPassword=false;
         this.route.navigate(['/movies-home']);
-      }else if(this.signInForm.value.username===EMAIL && this.signInForm.value.password===PASSWORD){
+      }else if(this.signInForm.value.username!==this.newUserEmail && this.signInForm.value.username){
+        this.invalidUserName=true;
+        this.invalidPassword=false;
+      }else if(this.signInForm.value.password!==this.newUserPassword && this.signInForm.value.password){
+        this.invalidPassword=true;
+        this.invalidUserName=false;
+      }
+
+      //Login with default user details
+      if(this.signInForm.value.username===EMAIL && this.signInForm.value.password===PASSWORD){
         this.invalidUserName=false;
         this.invalidPassword=false;
         this.route.navigate(['/movies-home']);
-      }else if(this.signInForm.value.username!==EMAIL && this.signInForm.value.username){
+      }else if(this.signInForm.value.username!==EMAIL && this.signInForm.value.username && this.signInForm.value.username !== this.newUserEmail){
         this.invalidUserName=true;
         this.invalidPassword=false;
-      }else if(this.signInForm.value.password!==PASSWORD && this.signInForm.value.password){
+      }else if(this.signInForm.value.password!==PASSWORD && this.signInForm.value.password && this.signInForm.value.password !== this.newUserPassword){
         this.invalidPassword=true;
         this.invalidUserName=false;
       }
